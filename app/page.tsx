@@ -1,4 +1,3 @@
-
 import { Flag } from '@/components/svg/flag';
 import { cn } from '@/utils/cn';
 import { CircleIcon } from 'lucide-react';
@@ -49,68 +48,70 @@ const pixParcelado: Array<{
 
 export default function HomePage() {
   return (
-    <div className='space-y-8'>
-      <div className="relative">
-        <span className='absolute capitalize bg-zinc-200 font-extrabold text-lg px-5 py-px rounded-full left-5 -top-3'>pix</span>
-        <div className='border-2 border-zinc-200 rounded-[10px] shadow-none'>
-          <div className='p-5'>
-            <div className="flex flex-row items-center justify-between">
-              <p className="text-2xl font-semibold">
-                <span className='font-extrabold'>1x</span> {" "}
-                R$ 30.500,00
-              </p>
-              <CircleIcon className="text-zinc-300 size-6" />
-            </div>
-            <p className="text-[#03D69D] text-base">
-              Ganhe {" "}
-              <span className='font-extrabold'>3%</span> de Cashback
-            </p>
-
-            <div className="pt-1 relative">
-              <Flag className='text-[#133A6F] w-full h-auto' />
-              <p className='font-semibold text-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white w-full ps-2 pt-1'>
-                🤑 {" "}
-                <span>R$ 300,00</span> {" "}
-                de volta no seu Pix na hora
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative" id='pix-parcelado'>
-        <span className='absolute capitalize bg-zinc-200 font-extrabold text-lg px-5 py-px rounded-full left-5 -top-3'>pix parcelado</span>
-
-        <div className="">
-        {pixParcelado.map((pix, index) => (
-          <div key={index} className={cn("card", index === 0 && "selected")}>
+    <div className="space-y-8">
+      <h1 className="text-2xl font-extrabold text-center">João, como você quer pagar?</h1>
+      <div className='space-y-8'>
+        <div className="relative">
+          <span className='absolute capitalize bg-zinc-200 font-extrabold text-lg px-5 py-px rounded-full left-5 -top-3'>pix</span>
+          <div className='border-2 border-zinc-200 rounded-[10px] shadow-none'>
             <div className='p-5'>
               <div className="flex flex-row items-center justify-between">
                 <p className="text-2xl font-semibold">
-                  <span className='font-extrabold'>{pix.parcela}</span> {" "}
-                  {pix.valor}
+                  <span className='font-extrabold'>1x</span> {" "}
+                  R$ 30.500,00
                 </p>
                 <CircleIcon className="text-zinc-300 size-6" />
               </div>
-              <p className="text-zinc-400 text-base font-semibold">
-                Total: {pix.total}
+              <p className="text-[#03D69D] text-base">
+                Ganhe {" "}
+                <span className='font-extrabold'>3%</span> de Cashback
               </p>
 
-              {pix.banner && (
-                <div className="pt-1 relative">
+              <div className="pt-1 relative">
                 <Flag className='text-[#133A6F] w-full h-auto' />
                 <p className='font-semibold text-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white w-full ps-2 pt-1'>
-                  <span>-3% de juros:</span> {" "}
-                  Melhor opção de parcelamento
+                  🤑 {" "}
+                  <span>R$ 300,00</span> {" "}
+                  de volta no seu Pix na hora
                 </p>
               </div>
-              )}
             </div>
           </div>
-        ))}
+        </div>
+
+        <div className="relative" id='pix-parcelado'>
+          <span className='absolute capitalize bg-zinc-200 font-extrabold text-lg px-5 py-px rounded-full left-5 -top-3'>pix parcelado</span>
+
+          <div className="">
+            {pixParcelado.map((pix, index) => (
+              <div key={index} className={cn("card", index === 0 && "selected")}>
+                <div className='p-5'>
+                  <div className="flex flex-row items-center justify-between">
+                    <p className="text-2xl font-semibold">
+                      <span className='font-extrabold'>{pix.parcela}</span> {" "}
+                      {pix.valor}
+                    </p>
+                    <CircleIcon className="text-zinc-300 size-6" />
+                  </div>
+                  <p className="text-zinc-400 text-base font-semibold">
+                    Total: {pix.total}
+                  </p>
+
+                  {pix.banner && (
+                    <div className="pt-1 relative">
+                      <Flag className='text-[#133A6F] w-full h-auto' />
+                      <p className='font-semibold text-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white w-full ps-2 pt-1'>
+                        <span>-3% de juros:</span> {" "}
+                        Melhor opção de parcelamento
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
     </div>
   );
 }
