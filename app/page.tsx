@@ -1,13 +1,24 @@
-import { Flag } from '@/components/svg/flag';
-import { cn } from '@/utils/cn';
-import { CircleIcon } from 'lucide-react';
+import { OptionCard } from '@/components/ui/option-card';
 
-const pixParcelado: Array<{
+interface InformationCard {
   parcela: string,
   valor: string,
+  discount?: string,
   total: string,
   banner: boolean
-}> = [
+  content?: string
+}
+
+const pixAVista: InformationCard = {
+  parcela: "1x",
+  valor: "R$ 30.500,00",
+  total: "R$ 30.500,00",
+  discount: "Ganhe 3% de cashback",
+  banner: true,
+  content: "🤑 R$ 300,00 de volta no seu Pix na hora"
+}
+
+const pixParcelado: Array<InformationCard> = [
     {
       parcela: "2x",
       valor: "R$ 15.300,00",
@@ -24,7 +35,8 @@ const pixParcelado: Array<{
       parcela: "4x",
       valor: "R$ 7.725,00",
       total: "R$ 30.900,00",
-      banner: true
+      banner: true,
+      content: "-3% de juros: Melhor opção de parcelamento"
     },
     {
       parcela: "5x",
@@ -53,30 +65,7 @@ export default function HomePage() {
       <div className='space-y-8'>
         <div className="relative">
           <span className='absolute capitalize bg-zinc-200 font-extrabold text-lg px-5 py-px rounded-full left-5 -top-3'>pix</span>
-          <div className='border-2 border-zinc-200 rounded-[10px] shadow-none'>
-            <div className='p-5'>
-              <div className="flex flex-row items-center justify-between">
-                <p className="text-2xl font-semibold">
-                  <span className='font-extrabold'>1x</span> {" "}
-                  R$ 30.500,00
-                </p>
-                <CircleIcon className="text-zinc-300 size-6" />
-              </div>
-              <p className="text-[#03D69D] text-base">
-                Ganhe {" "}
-                <span className='font-extrabold'>3%</span> de Cashback
-              </p>
-
-              <div className="pt-1 relative">
-                <Flag className='text-[#133A6F] w-full h-auto' />
-                <p className='font-semibold text-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white w-full ps-2 pt-1'>
-                  🤑 {" "}
-                  <span>R$ 300,00</span> {" "}
-                  de volta no seu Pix na hora
-                </p>
-              </div>
-            </div>
-          </div>
+          <OptionCard card={pixAVista} />
         </div>
 
         <div className="relative" id='pix-parcelado'>
@@ -84,30 +73,7 @@ export default function HomePage() {
 
           <div className="">
             {pixParcelado.map((pix, index) => (
-              <div key={index} className={cn("card", index === 0 && "selected")}>
-                <div className='p-5'>
-                  <div className="flex flex-row items-center justify-between">
-                    <p className="text-2xl font-semibold">
-                      <span className='font-extrabold'>{pix.parcela}</span> {" "}
-                      {pix.valor}
-                    </p>
-                    <CircleIcon className="text-zinc-300 size-6" />
-                  </div>
-                  <p className="text-zinc-400 text-base font-semibold">
-                    Total: {pix.total}
-                  </p>
-
-                  {pix.banner && (
-                    <div className="pt-1 relative">
-                      <Flag className='text-[#133A6F] w-full h-auto' />
-                      <p className='font-semibold text-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white w-full ps-2 pt-1'>
-                        <span>-3% de juros:</span> {" "}
-                        Melhor opção de parcelamento
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </div>
+              <OptionCard key={index} card={pix} className='group-card' />
             ))}
           </div>
         </div>
