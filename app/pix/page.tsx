@@ -1,4 +1,4 @@
-import { ChevronUpIcon, CopyIcon } from "lucide-react";
+import { ChevronUpIcon, Circle, CopyIcon } from "lucide-react";
 
 export default function PixPage() {
   return (
@@ -10,7 +10,7 @@ export default function PixPage() {
             <img src="/qrcode.png" alt="Qrcode de pagamento" />
           </div>
 
-          <button type="button" className="bg-[#133A6F] text-zinc-50 px-5 py-2 rounded-md flex items-center justify-center font-semibold">
+          <button type="button" className="bg-[#133A6F] text-zinc-50   px-5 py-2 rounded-md flex items-center justify-center font-semibold">
             Clique para copiar QR CODE
             <CopyIcon className="ms-2" />
           </button>
@@ -24,17 +24,18 @@ export default function PixPage() {
         <div className="space-y-4 relative">
           <div className="flex flex-row items-center justify-between gap-5">
             {/* circle */}
-            <div className="border-2 size-4 border-[#03D69D] rounded-full" />
+            <Circle className="size-4 h-auto text-[#03D69D]" />
             <div className="flex flex-1 flex-row justify-between text-lg text-zinc-700">
               <p className="font-semibold ">1ª entrada no Pix</p>
               <p className="font-extrabold">R$ 15.300,00</p>
             </div>
           </div>
+
           <div className="absolute bg-zinc-300 h-7 w-[2px] top-1.5 left-[7px]" />
 
           <div className="flex flex-row items-center justify-between gap-5">
             {/* circle */}
-            <div className="border-2 size-4 border-zinc-300 rounded-full" />
+            <Circle className="size-4 h-auto text-zinc-300" />
             <div className="flex flex-1 flex-row justify-between text-lg text-zinc-700">
               <p className="font-semibold ">2ª no cartão</p>
               <p className="font-extrabold">R$ 15.300,00</p>

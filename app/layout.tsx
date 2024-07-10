@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={cn("antialiased min-h-screen", font.className)}>
         <main className="pt-9 pb-6 space-y-6">
-            <WooviLogo className="h-9 w-auto text-[#03D69D] mx-auto" />
+          <WooviLogo className="h-9 w-auto text-[#03D69D] mx-auto" />
 
           <div className="px-4">
             {children}
