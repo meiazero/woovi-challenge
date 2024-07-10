@@ -1,3 +1,4 @@
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import { ChevronUpIcon, Circle, CopyIcon } from "lucide-react";
 
 export default function PixPage() {
@@ -12,7 +13,7 @@ export default function PixPage() {
 
           <button type="button" className="bg-[#133A6F] text-zinc-50   px-5 py-2 rounded-md flex items-center justify-center font-semibold">
             Clique para copiar QR CODE
-            <CopyIcon className="ms-2" />
+            <CopyIcon className="ms-3" />
           </button>
 
           <div className="space-y-px font-semibold">
@@ -54,14 +55,19 @@ export default function PixPage() {
 
         <div className="bg-zinc-200 h-0.5 w-full" />
 
-        <div className="flex flex-row justify-between items-center">
-          <p className="">
-            Como funciona?
-          </p>
-          <ChevronUpIcon className="w-3 h-auto" />
-        </div>
-
-        <div className="bg-zinc-200 h-0.5 w-full" />
+        <Accordion variant="outlined">
+          <AccordionSummary
+            expandIcon={<ChevronUpIcon />}
+            className="font-extrabold"
+            aria-controls="panel-content"
+          >
+            como funciona?
+          </AccordionSummary>
+          <AccordionDetails className="">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </AccordionDetails>
+        </Accordion>
 
         <div className="spce-y-px text-center">
           <p className="font-semibold text-zinc-400">Identificador:</p>
