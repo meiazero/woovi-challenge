@@ -2,32 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  min-width: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.card {
+  @apply border-2 border-zinc-200 rounded-[10px];
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.selected {
+  @apply border-2 border-t-2 border-[#03D69D] bg-[#F4FBF9]/10;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.card:first-child {
+  @apply rounded-b-none;
+}
+
+.card:last-child {
+  @apply rounded-t-none;
+}
+
+.card:not(:first-child):not(:last-child) {
+  @apply rounded-none
 }
