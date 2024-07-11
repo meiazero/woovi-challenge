@@ -1,5 +1,7 @@
 
-import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Divider, MenuItem, OutlinedInput, Select } from '@mui/material';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import { CheckCircle2Icon, ChevronUpIcon, CircleIcon } from 'lucide-react';
 
 export default function CreditPage() {
@@ -7,37 +9,69 @@ export default function CreditPage() {
     <div className="space-y-8">
       <h1 className="text-2xl font-extrabold text-center">João, pague o restante em 1x no cartão</h1>
       <div className="space-y-6">
-        <form className='flex flex-col gap-4'>
-          <TextField
-            label="Nome Completo"
-            variant="outlined"
-            type="text"
-            className='w-full'
-          />
+        <form className='flex flex-col gap-4' autoComplete='off'>
+          <FormControl variant='outlined'>
+            <InputLabel htmlFor="component-outlined">
+              Nome Completo
+            </InputLabel>
+            <OutlinedInput
+              id="component-outlined"
+              label="Nome Completo"
+              fullWidth
 
-          <TextField
-            label="CPF"
-            variant="outlined"
-            type="text" />
+            />
+          </FormControl>
 
-          <TextField
-            label="Número do cartão"
-            variant="outlined"
-            type="text" />
+          <FormControl variant='outlined'>
+            <InputLabel htmlFor="component-outlined">
+              CPF
+            </InputLabel>
+            <OutlinedInput
+              id="component-outlined"
+              label="CPF"
+              fullWidth
 
-          <div className="flex flex-row w-full justify-between gap-5">
-            <TextField
-              className='w-1/2'
+            />
+          </FormControl>
+
+          <FormControl variant='outlined'>
+            <InputLabel htmlFor="component-outlined">
+              Número do cartão
+            </InputLabel>
+            <OutlinedInput
+              id="component-outlined"
+              label="Número do cartão"
+              fullWidth
+
+            />
+          </FormControl>
+
+          <div className="flex flex-row w-full items-center justify-center gap-4">
+          <FormControl variant='outlined'>
+            <InputLabel htmlFor="component-outlined">
+              Vencimento
+            </InputLabel>
+            <OutlinedInput
+              id="component-outlined"
               label="Vencimento"
-              variant="outlined"
-              type="text" />
+              fullWidth
 
-            <TextField
-              className='w-1/2'
+            />
+          </FormControl>
+          <FormControl variant='outlined'>
+            <InputLabel htmlFor="component-outlined">
+              CVV
+            </InputLabel>
+            <OutlinedInput
+              id="component-outlined"
               label="CVV"
-              variant="outlined"
-              type="text" />
+              fullWidth
+
+            />
+          </FormControl>
           </div>
+
+
 
           <FormControl variant="outlined" className='w-full'>
             <InputLabel>Parcelas</InputLabel>
@@ -78,7 +112,7 @@ export default function CreditPage() {
         </div>
       </div>
 
-      <div className="bg-zinc-200 h-0.5 w-full" />
+      <Divider orientation="horizontal" />
 
       <div className="flex flex-row items-center justify-between font-semibold">
         <p className="text-sm">CET: 0,5%</p>
@@ -87,16 +121,23 @@ export default function CreditPage() {
         </p>
       </div>
 
-      <div className="bg-zinc-200 h-0.5 w-full" />
+      <Divider orientation="horizontal" />
 
-      <div className="flex flex-row justify-between items-center">
-        <p className="font-extrabold">
-          Como funciona?
-        </p>
-        <ChevronUpIcon className="w-3 h-auto" />
-      </div>
+      <Accordion>
+          <AccordionSummary
+            expandIcon={<ChevronUpIcon />}
+            className="font-extrabold"
+            aria-controls="panel-content"
+          >
+            como funciona?
+          </AccordionSummary>
+          <AccordionDetails>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </AccordionDetails>
+        </Accordion>
 
-      <div className="bg-zinc-200 h-0.5 w-full" />
+      <Divider orientation="horizontal" />
 
       <div className="spce-y-px text-center">
         <p className="font-semibold text-zinc-400">Identificador:</p>

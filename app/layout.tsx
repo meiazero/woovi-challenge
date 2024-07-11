@@ -13,7 +13,6 @@ const font = Font({
 
 export const metadata: Metadata = {
   title: "Woovi Challenge",
-  description: "",
   icons: {
     icon: "/favicon.webp",
   }

@@ -1,5 +1,8 @@
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
-import { ChevronUpIcon, Circle, CopyIcon } from "lucide-react";
+import { CopyPixButton } from "@/components/ui/CopyPixButton";
+import { Accordion, AccordionDetails, AccordionSummary, Card, Divider } from "@mui/material";
+import { ChevronUpIcon, Circle } from "lucide-react";
+
+const code="00020126360014BR.GOV.BCB.PIX0114+5599999999999520400005303986540815300.005802BR5908John Doe6009Sao Paulo62090505woovi63042310"
 
 export default function PixPage() {
   return (
@@ -7,14 +10,13 @@ export default function PixPage() {
       <h1 className="text-2xl font-extrabold text-center">João, pague a entrada de R$ 15.300,00 pelo Pix</h1>
       <div className="space-y-6">
         <div className="flex flex-col items-center justify-center gap-5">
-          <div className="border-2 size-[350px] border-[#03D69D] rounded-[10px] flex items-center justify-center">
+          <Card className="border-2 size-[350px] border-[#03D69D] rounded-[10px] flex items-center justify-center"
+          sx={{
+            boxShadow: 0
+          }}>
             <img src="/qrcode.png" alt="Qrcode de pagamento" />
-          </div>
-
-          <button type="button" className="bg-[#133A6F] text-zinc-50   px-5 py-2 rounded-md flex items-center justify-center font-semibold">
-            Clique para copiar QR CODE
-            <CopyIcon className="ms-3" />
-          </button>
+          </Card>
+          <CopyPixButton code={code} />
 
           <div className="space-y-px font-semibold">
             <p className="text-sm text-zinc-400">Prazo de pagamento: </p>
@@ -44,7 +46,7 @@ export default function PixPage() {
           </div>
         </div>
 
-        <div className="bg-zinc-200 h-0.5 w-full" />
+        <Divider orientation="horizontal" />
 
         <div className="flex flex-row items-center justify-between font-semibold">
           <p className="text-sm">CET: 0,5%</p>
@@ -53,9 +55,9 @@ export default function PixPage() {
           </p>
         </div>
 
-        <div className="bg-zinc-200 h-0.5 w-full" />
+        <Divider orientation="horizontal" />
 
-        <Accordion variant="outlined">
+        <Accordion>
           <AccordionSummary
             expandIcon={<ChevronUpIcon />}
             className="font-extrabold"
