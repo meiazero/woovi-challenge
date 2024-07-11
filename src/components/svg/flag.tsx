@@ -1,5 +1,6 @@
 export function Flag(props: React.SVGProps<SVGSVGElement>) {
   return (
+    // biome-ignore lint/a11y/noSvgWithoutTitle: <explanation>
     <svg
       width={385}
       height={33}
@@ -13,5 +14,5 @@ export function Flag(props: React.SVGProps<SVGSVGElement>) {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }

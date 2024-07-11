@@ -1,13 +1,14 @@
-"use client"
+"use client";
 
 import { CopyIcon } from "lucide-react";
 import { useState } from "react";
+import { Button } from "./Button";
 
 interface CopyPixButtonProps {
-  code: string
+  code: string;
 }
 
-export function CopyPixButton ({code}: CopyPixButtonProps) {
+export function CopyPixButton({ code }: CopyPixButtonProps) {
   const [copied, setCopied] = useState<boolean>(false);
 
   const handleCopy = async () => {
@@ -17,16 +18,14 @@ export function CopyPixButton ({code}: CopyPixButtonProps) {
   };
 
   return (
-    <button type="button" className="bg-[#133A6F] text-zinc-50   px-5 py-2 rounded-md flex items-center justify-center font-semibold" onClick={handleCopy}>
+    <Button type="button" onClick={handleCopy}>
       {copied ? (
         <span>Código copiado!</span>
       ) : (
-        <span>
-          Clique para copiar QR CODE
-        </span>
+        <span>Clique para copiar QR CODE</span>
       )}
 
-    <CopyIcon className="ms-3" />
-  </button>
-  )
-};
+      <CopyIcon className="ms-3" />
+    </Button>
+  );
+}
